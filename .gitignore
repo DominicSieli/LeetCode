@@ -1,0 +1,10 @@
+/*
+!LICENSE
+!.gitignore
+
+/*/
+!/Source
+
+/Source/*
+!/Source/*.h
+!/Source/*.cpp
