@@ -6,7 +6,7 @@ std::vector<int> TwoSum(std::vector<int>& nums, int target)
 {
 	std::unordered_map<int, int> cache;
 
-	for(int i = 0; i < nums.size(); ++i)
+	for(int i = 0; i < nums.size(); i++)
 	{
 		int complement = target - nums[i];
 
@@ -26,10 +26,7 @@ std::vector<int> vector({1,2,3,4,5,6,7,8,9});
 
 int main()
 {
-	results = TwoSum(vector, 17);
-
-	for(int x : results)
-	{
-		std::cout << "[" << x << "]";
-	}
+	results = TwoSum(vector, 9);
+	std::cout << "[" << results[0] << "]";
+	std::cout << "[" << results[1] << "]";
 }
