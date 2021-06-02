@@ -12,7 +12,7 @@ struct ListNode* AddTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 	int carry = 0;
     struct ListNode* node1 = l1;
     struct ListNode* node2 = l2;
-    struct ListNode* sumList = (struct ListNode*)malloc(sizeof(struct ListNode));
+    struct ListNode* sumList = malloc(sizeof(struct ListNode));
     struct ListNode* current = sumList;
 
     while(node1 != NULL || node2 != NULL)
@@ -22,7 +22,7 @@ struct ListNode* AddTwoNumbers(struct ListNode* l1, struct ListNode* l2)
         int sum = carry + x + y;
 
         carry = sum / 10;
-        current->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+        current->next = malloc(sizeof(struct ListNode));
         current->next->val = sum % 10;
         current = current->next;
 
@@ -32,7 +32,7 @@ struct ListNode* AddTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 
     if(carry > 0)
 	{
-        current->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+        current->next = malloc(sizeof(struct ListNode));
         current->next->val = carry;
     }
 
@@ -43,15 +43,15 @@ int main()
 {
 	struct ListNode* ptr;
 	struct ListNode* sum;
-	struct ListNode* l1 = (struct ListNode*)malloc(sizeof(struct ListNode));
-	struct ListNode* l2 = (struct ListNode*)malloc(sizeof(struct ListNode));
+	struct ListNode* l1 = malloc(sizeof(struct ListNode));
+	struct ListNode* l2 = malloc(sizeof(struct ListNode));
 
 	ptr = l1;
 	int i = 0;
 	while(i < 8)
 	{
 		i++;
-		ptr->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+		ptr->next = malloc(sizeof(struct ListNode));
 		ptr = ptr->next;
 	}
 
@@ -60,7 +60,7 @@ int main()
 	while(i < 8)
 	{
 		i++;
-		ptr->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+		ptr->next = malloc(sizeof(struct ListNode));
 		ptr = ptr->next;
 	}
 
