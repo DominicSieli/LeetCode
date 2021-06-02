@@ -7,4 +7,6 @@
 
 /Source/*
 !/Source/*.h
+!/Source/*.c
+!/Source/*.cs
 !/Source/*.cpp
