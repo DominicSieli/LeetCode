@@ -32,7 +32,7 @@ class LeetCode
         int target = 9;
         int[] nums = new int[] {1,2,3,4,5,6,7,8,9};
         int[] results = solution.TwoSum(nums, target);
-
+        
         Console.WriteLine("["+results[0]+"]" + "["+results[1]+"]");
     }
 }
