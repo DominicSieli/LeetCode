@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Solution
 {
-    public int[] TwoSum(int[] nums, int target)
+    public int[] Two_Sum(int[] nums, int target)
     {
         Dictionary<int, int> cache = new Dictionary<int, int>();
         
@@ -31,7 +31,7 @@ class LeetCode
 
         int target = 9;
         int[] nums = new int[] {1,2,3,4,5,6,7,8,9};
-        int[] results = solution.TwoSum(nums, target);
+        int[] results = solution.Two_Sum(nums, target);
         
         Console.WriteLine("["+results[0]+"]" + "["+results[1]+"]");
     }

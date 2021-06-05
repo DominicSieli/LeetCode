@@ -7,7 +7,7 @@ struct ListNode
 	struct ListNode* next;
 };
 
-struct ListNode* AddTwoNumbers(struct ListNode* l1, struct ListNode* l2)
+struct ListNode* Add_Two_Numbers(struct ListNode* l1, struct ListNode* l2)
 {
 	int carry = 0;
     struct ListNode* node1 = l1;
@@ -80,7 +80,7 @@ int main()
 		ptr = ptr->next;
 	}
 
-	sum = AddTwoNumbers(l1, l2);
+	sum = Add_Two_Numbers(l1, l2);
 
 	ptr = l1;
 	while(ptr != NULL)

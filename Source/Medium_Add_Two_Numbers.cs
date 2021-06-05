@@ -1,11 +1,11 @@
 using System;
 
-public class ListNode
+public class List_Node
 {
     public int val;
-    public ListNode next;
+    public List_Node next;
     
-    public ListNode(int val = 0, ListNode next = null)
+    public List_Node(int val = 0, List_Node next = null)
     {
         this.val = val;
         this.next = next;
@@ -14,13 +14,13 @@ public class ListNode
 
 public class Solution
 {
-    public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+    public List_Node Add_Two_Numbers(List_Node l1, List_Node l2)
     {
         int carry = 0;
-        ListNode node1 = l1;
-        ListNode node2 = l2;
-        ListNode sumList = new ListNode();
-        ListNode current = sumList;
+        List_Node node1 = l1;
+        List_Node node2 = l2;
+        List_Node sumList = new List_Node();
+        List_Node current = sumList;
 
         while(node1 != null || node2 != null)
 	    {
@@ -29,7 +29,7 @@ public class Solution
             int sum = carry + x + y;
 
             carry = sum / 10;
-            current.next = new ListNode(sum % 10);
+            current.next = new List_Node(sum % 10);
             current = current.next;
 
             if(node1 != null) node1 = node1.next;
@@ -38,7 +38,7 @@ public class Solution
 
         if(carry > 0)
 	    {
-            current.next = new ListNode(carry);
+            current.next = new List_Node(carry);
         }
 
         return sumList.next;

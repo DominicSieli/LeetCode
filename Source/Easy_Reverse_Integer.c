@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <limits.h>
 
-int ReverseInteger(int x)
+int Reverse_Integer(int x)
 {
 	int rev = 0;
+	int pop = 0;
 
 	while(x != 0)
 	{
-		int pop = x % 10;
+		pop = x % 10;
 		x /= 10;
 
 		if(rev > INT_MAX / 10 || (rev == INT_MAX / 10 && pop > 7)) return 0;
@@ -20,7 +21,7 @@ int ReverseInteger(int x)
 
 int main()
 {
-	printf("%d", ReverseInteger(123));
+	printf("%d", Reverse_Integer(123));
 	printf("\n");
-	printf("%d", ReverseInteger(-123));
+	printf("%d", Reverse_Integer(-123));
 }

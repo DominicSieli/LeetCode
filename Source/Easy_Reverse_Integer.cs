@@ -2,13 +2,14 @@ using System;
 
 public class Solution
 {
-	public int Reverse(int x)
+	public int Reverse_Integer(int x)
 	{
 		int rev = 0;
+		int pop = 0;
 
 		while(x != 0)
 		{
-			int pop = x % 10;
+			pop = x % 10;
 			x /= 10;
 
 			if(rev > Int32.MaxValue / 10 || (rev == Int32.MaxValue / 10 && pop > 7)) return 0;
@@ -26,7 +27,7 @@ class Leetcode
 	{
 		Solution solution = new Solution();
 		
-		Console.WriteLine(solution.Reverse(123));
-		Console.WriteLine(solution.Reverse(-123));
+		Console.WriteLine(solution.Reverse_Integer(123));
+		Console.WriteLine(solution.Reverse_Integer(-123));
 	}
 }

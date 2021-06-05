@@ -2,7 +2,7 @@
 #include <iostream>
 #include <unordered_map>
 
-std::vector<int> TwoSum(std::vector<int>& nums, int target)
+std::vector<int> Two_Sum(std::vector<int>& nums, int target)
 {
 	std::unordered_map<int, int> cache;
 
@@ -26,7 +26,7 @@ std::vector<int> vector({1,2,3,4,5,6,7,8,9});
 
 int main()
 {
-	results = TwoSum(vector, 17);
+	results = Two_Sum(vector, 17);
 
 	for(int x : results)
 	{

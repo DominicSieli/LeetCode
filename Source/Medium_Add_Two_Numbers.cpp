@@ -9,7 +9,7 @@ struct ListNode
 	ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-ListNode* AddTwoNumbers(ListNode* l1, ListNode* l2)
+ListNode* Add_Two_Numbers(ListNode* l1, ListNode* l2)
 {
 	int carry = 0;
     ListNode* node1 = l1;
@@ -80,7 +80,7 @@ int main()
 		ptr = ptr->next;
 	}
 
-	sum = AddTwoNumbers(l1, l2);
+	sum = Add_Two_Numbers(l1, l2);
 
 	ptr = l1;
 	while(ptr != nullptr)
