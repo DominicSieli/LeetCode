@@ -6,7 +6,7 @@ public class Solution
     public int[] Two_Sum(int[] nums, int target)
     {
         Dictionary<int, int> cache = new Dictionary<int, int>();
-        
+
         for(int i = 0; i < nums.Length; i++)
 	    {
 		    int complement = target - nums[i];
@@ -23,7 +23,7 @@ public class Solution
     }
 }
 
-class LeetCode
+public class LeetCode
 {
     public static void Main()
     {
@@ -32,7 +32,7 @@ class LeetCode
         int target = 9;
         int[] nums = new int[] {1,2,3,4,5,6,7,8,9};
         int[] results = solution.Two_Sum(nums, target);
-        
+
         Console.WriteLine("["+results[0]+"]" + "["+results[1]+"]");
     }
 }

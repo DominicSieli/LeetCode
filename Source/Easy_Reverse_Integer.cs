@@ -21,12 +21,12 @@ public class Solution
 	}
 }
 
-class Leetcode
+public class LeetCode
 {
 	public static void Main()
 	{
 		Solution solution = new Solution();
-		
+
 		Console.WriteLine(solution.Reverse_Integer(123));
 		Console.WriteLine(solution.Reverse_Integer(-123));
 	}

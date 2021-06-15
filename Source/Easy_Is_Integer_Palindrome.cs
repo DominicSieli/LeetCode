@@ -38,7 +38,7 @@ public class Solution
 	}
 }
 
-class LeetCode
+public class LeetCode
 {
 	public static void Main()
 	{

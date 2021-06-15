@@ -4,7 +4,7 @@ public class List_Node
 {
     public int val;
     public List_Node next;
-    
+
     public List_Node(int val = 0, List_Node next = null)
     {
         this.val = val;
@@ -45,7 +45,7 @@ public class Solution
     }
 }
 
-class LeetCode
+public class LeetCode
 {
     public static void Main()
     {

@@ -10,6 +10,8 @@ std::string Longest_Common_Prefix(std::vector<std::string>& strs)
 	{
 		for(unsigned int c = 0; c < i; c++)
 		{
+			if(c >= strs[s].length()) {i = strs[s].length(); break;}
+			if(c >= strs[s+1].length()) {i = strs[s+1].length(); break;}
 			if(strs[s][c] != strs[s+1][c]) i = c;
 		}
 	}
@@ -19,11 +21,13 @@ std::string Longest_Common_Prefix(std::vector<std::string>& strs)
 
 std::vector<std::string> strs1({"a"});
 std::vector<std::string> strs2({"",""});
-std::vector<std::string> strs3({"flower","flow","flight"});
+std::vector<std::string> strs3({"ab","a"});
+std::vector<std::string> strs4({"flower","flow","flight"});
 
 int main()
 {
 	std::cout << Longest_Common_Prefix(strs1) << '\n';
 	std::cout << Longest_Common_Prefix(strs2) << '\n';
 	std::cout << Longest_Common_Prefix(strs3) << '\n';
+	std::cout << Longest_Common_Prefix(strs4) << '\n';
 }
