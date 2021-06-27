@@ -4,34 +4,16 @@ public class Solution
 {
 	public bool Is_Interger_Palindrome(int x)
 	{
+		int n = 0;
 		if(x < 0) return false;
+		if(x > 0) n = (int)Math.Log10(x);
 
-		int rev = 0;
-		int rev_x = x;
-
-		while(rev_x != 0)
+		while(x != 0)
 		{
-			int pop = rev_x % 10;
-			rev_x /= 10;
-
-			if(rev > Int32.MaxValue / 10 || (rev == Int32.MaxValue / 10 && pop > 7)) return false;
-			if(rev < Int32.MinValue / 10 || (rev == Int32.MinValue / 10 && pop < -8)) return false;
-			rev = rev * 10 + pop;
-		}
-
-		rev_x = x;
-
-		while(rev_x != 0)
-		{
-			int x_pop = rev_x % 10;
-			int rev_pop = rev % 10;
-			rev /= 10;
-			rev_x /= 10;
-
-			if(x_pop != rev_pop)
-			{
-				return false;
-			}
+			if(x % 10 != (int)(x / (int)Math.Pow(10, n))) return false;
+			x = x % (int)Math.Pow(10, n);
+			x = (int)(x / 10);
+			n -= 2;
 		}
 
 		return true;

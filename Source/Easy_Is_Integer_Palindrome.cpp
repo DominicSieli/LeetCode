@@ -1,37 +1,19 @@
 #include <iomanip>
 #include <iostream>
-#include <limits.h>
+#include <bits/stdc++.h>
 
 bool Is_Interger_Palindrome(int x)
 {
+	unsigned int n;
 	if(x < 0) return false;
+	if(x > 0) n = (int)std::log10(x);
 
-	int rev = 0;
-	int rev_x = x;
-
-	while(rev_x != 0)
+	while(x != 0)
 	{
-		int pop = rev_x % 10;
-		rev_x /= 10;
-
-		if(rev > INT_MAX / 10 || (rev == INT_MAX / 10 && pop > 7)) return false;
-		if(rev < INT_MIN / 10 || (rev == INT_MIN / 10 && pop < -8)) return false;
-		rev = rev * 10 + pop;
-	}
-
-	rev_x = x;
-
-	while(rev_x != 0)
-	{
-		int x_pop = rev_x % 10;
-		int rev_pop = rev % 10;
-		rev /= 10;
-		rev_x /= 10;
-
-		if(x_pop != rev_pop)
-		{
-			return false;
-		}
+		if(x % 10 != (int)(x / (int)std::pow(10, n))) return false;
+		x = x % (int)std::pow(10, n);
+		x = (int)(x / 10);
+		n -= 2;
 	}
 
 	return true;
@@ -39,5 +21,5 @@ bool Is_Interger_Palindrome(int x)
 
 int main()
 {
-	std::cout << std::boolalpha << Is_Interger_Palindrome(121);
+	std::cout << std::boolalpha << Is_Interger_Palindrome(12122121);
 }
