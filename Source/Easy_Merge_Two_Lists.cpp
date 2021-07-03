@@ -9,7 +9,7 @@ struct ListNode
 	ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-ListNode* Merge_Two_Lists(ListNode* l1, ListNode* l2)
+ListNode* Merge_Two_Lists_Iterative(ListNode* l1, ListNode* l2)
 {
 	ListNode* node = nullptr;
 	ListNode* head = nullptr;
@@ -31,6 +31,15 @@ ListNode* Merge_Two_Lists(ListNode* l1, ListNode* l2)
 	return head;
 }
 
+ListNode* Merge_Two_Lists_Recursive(ListNode* l1, ListNode* l2)
+{
+	if(l1 == nullptr) return l2;
+	if(l2 == nullptr) return l1;
+	if(l1->val < l2->val) {l1->next = Merge_Two_Lists_Recursive(l1->next, l2); return l1;}
+	if(l1->val >= l2->val) {l2->next = Merge_Two_Lists_Recursive(l1, l2->next); return l2;}
+	return nullptr;
+}
+
 ListNode* l1 = nullptr;
 ListNode* l2 = nullptr;
 
@@ -48,7 +57,7 @@ int main()
 		l2 = node;
 	}
 
-	ListNode* list = Merge_Two_Lists(l1, l2);
+	ListNode* list = Merge_Two_Lists_Iterative(l1, l2);
 
 	while(list != nullptr)
 	{

@@ -6,7 +6,7 @@ struct ListNode
 	struct ListNode *next;
 };
 
-struct ListNode* Merge_Two_Lists(struct ListNode* l1, struct ListNode* l2)
+struct ListNode* Merge_Two_Lists_Iterative(struct ListNode* l1, struct ListNode* l2)
 {
 	struct ListNode* node = NULL;
 	struct ListNode* head = NULL;
@@ -26,6 +26,15 @@ struct ListNode* Merge_Two_Lists(struct ListNode* l1, struct ListNode* l2)
 	if(l2 != NULL) {tail->next = l2; tail = l2;}
 
 	return head;
+}
+
+struct ListNode* Merge_Two_Lists_Recursive(struct ListNode* l1, struct ListNode* l2)
+{
+	if(l1 == NULL) return l2;
+	if(l2 == NULL) return l1;
+	if(l1->val < l2->val) {l1->next = Merge_Two_Lists_Recursive(l1->next, l2); return l1;}
+	if(l1->val >= l2->val) {l2->next = Merge_Two_Lists_Recursive(l1, l2->next); return l2;}
+	return NULL;
 }
 
 struct ListNode* l1 = NULL;
@@ -49,7 +58,7 @@ int main()
 		l2 = node;
 	}
 
-	struct ListNode* list = Merge_Two_Lists(l1, l2);
+	struct ListNode* list = Merge_Two_Lists_Iterative(l1, l2);
 
 	while(list != NULL)
 	{
