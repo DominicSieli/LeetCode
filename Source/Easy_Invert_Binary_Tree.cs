@@ -17,8 +17,8 @@ public class Solution
     public TreeNode Invert_Binary_Tree(TreeNode root)
     {
         if(root == null) return null;
-        TreeNode left = InvertTree(root.left);
-        TreeNode right = InvertTree(root.right);
+        TreeNode left = Invert_Binary_Tree(root.left);
+        TreeNode right = Invert_Binary_Tree(root.right);
         root.left = right;
         root.right = left;
         return root;

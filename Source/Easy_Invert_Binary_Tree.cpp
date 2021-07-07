@@ -11,8 +11,8 @@ struct TreeNode
 TreeNode* Invert_Binary_Tree(TreeNode* root)
 {
 	if(root == nullptr) return nullptr;
-	TreeNode* left = invertTree(root->left);
-	TreeNode* right = invertTree(root->right);
+	TreeNode* left = Invert_Binary_Tree(root->left);
+	TreeNode* right = Invert_Binary_Tree(root->right);
 	root->left = right;
 	root->right = left;
 	return root;

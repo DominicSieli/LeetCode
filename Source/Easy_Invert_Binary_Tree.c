@@ -8,8 +8,8 @@ struct TreeNode
 TreeNode* Invert_Binary_Tree(struct TreeNode* root)
 {
 	if(root == NULL) return NULL;
-    struct TreeNode* left = invertTree(root->left);
-    struct TreeNode* right = invertTree(root->right);
+    struct TreeNode* left = Invert_Binary_Tree(root->left);
+    struct TreeNode* right = Invert_Binary_Tree(root->right);
     root->left = right;
     root->right = left;
     return root;
