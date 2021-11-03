@@ -23,21 +23,21 @@ class Calculate
 
 class Algorithm
 {
-    public static Point Closest_Point(List<Point> points)
+    public static Point ClosestPoint(Point[] points)
     {
-        if(points.Count == 0) return new Point(0,0);
-        Point closest_point = new Point(0,0);
-        closest_point = points[0];
+        if(points.Length == 0) return new Point(0,0);
+        Point point = new Point(0,0);
+        point = points[0];
 
-        for(int i = 0; i < points.Count; i++)
+        for(int i = 0; i < points.Length; i++)
         {
-            if(Calculate.Distance(points[i]) < Calculate.Distance(closest_point))
+            if(Calculate.Distance(points[i]) < Calculate.Distance(point))
             {
-                closest_point = points[i];
+                point = points[i];
             }
         }
 
-        return closest_point;
+        return point;
     }
 }
 
@@ -45,12 +45,12 @@ class Program
 {
     static void Main()
     {
-        List<Point> points = new List<Point>();
-        points.Add(new Point(8,8));
-        points.Add(new Point(4,4));
-        points.Add(new Point(2,2));
-        points.Add(new Point(1,1));
-        Point point = Algorithm.Closest_Point(points);
+		Point[] points = new Point[4];
+		points[0] = new Point(8,8);
+		points[1] = new Point(4,4);
+		points[2] = new Point(2,2);
+		points[3] = new Point(1,1);
+        Point point = Algorithm.ClosestPoint(points);
         Console.WriteLine("Closest Point: [{0},{1}]", point.x, point.y);
     }
 }

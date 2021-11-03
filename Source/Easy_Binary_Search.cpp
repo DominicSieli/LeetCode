@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-int Binary_Search(std::vector<int>& nums, int target)
+int BinarySearch(std::vector<int>& nums, int target)
 {
 	int left = 0;
 	int median = 0;
@@ -29,6 +29,6 @@ int main()
 {
 	for(int i = 1; i <= 256; i *= 2)
 	{
-		std::cout << i << ": " << Binary_Search(vector, i) << '\n';
+		std::cout << i << ": " << BinarySearch(vector, i) << '\n';
 	}
 }

@@ -1,67 +1,67 @@
 #include <iostream>
 
-struct ListNode
+struct Node
 {
-	int val;
-	ListNode *next;
-	ListNode() : val(0), next(nullptr) {}
-	ListNode(int x) : val(x), next(nullptr) {}
-	ListNode(int x, ListNode *next) : val(x), next(next) {}
+	int data;
+	Node* next;
+	Node() : data(0), next(nullptr) {}
+	Node(int x) : data(x), next(nullptr) {}
+	Node(int x, Node* next) : data(x), next(next) {}
 };
 
-ListNode* Merge_Two_Lists_Iterative(ListNode* l1, ListNode* l2)
+Node* MergeTwoListsIterative(Node* list1, Node* list2)
 {
-	ListNode* node = nullptr;
-	ListNode* head = nullptr;
-	ListNode* tail = nullptr;
+	Node* node = nullptr;
+	Node* head = nullptr;
+	Node* tail = nullptr;
 
-	if(l1 != nullptr && l2 == nullptr) return l1;
-	if(l1 == nullptr && l2 != nullptr) return l2;
+	if(list1 != nullptr && list2 == nullptr) return list1;
+	if(list1 == nullptr && list2 != nullptr) return list2;
 
-	while(l1 != nullptr && l2 != nullptr)
+	while(list1 != nullptr && list2 != nullptr)
 	{
-		node = (l1->val < l2->val) ? l1 : l2;
+		node = (list1->data < list2->data) ? list1 : list2;
 		if(tail == nullptr) head = node; else tail->next = node; tail = node;
-		if(l1->val < l2->val) l1 = l1->next; else l2 = l2->next;
+		if(list1->data < list2->data) list1 = list1->next; else list2 = list2->next;
 	}
 
-	if(l1 != nullptr) {tail->next = l1; tail = l1;}
-	if(l2 != nullptr) {tail->next = l2; tail = l2;}
+	if(list1 != nullptr) {tail->next = list1; tail = list1;}
+	if(list2 != nullptr) {tail->next = list2; tail = list2;}
 
 	return head;
 }
 
-ListNode* Merge_Two_Lists_Recursive(ListNode* l1, ListNode* l2)
+Node* MergeTwoListsRecursive(Node* list1, Node* list2)
 {
-	if(l1 == nullptr) return l2;
-	if(l2 == nullptr) return l1;
-	if(l1->val < l2->val) {l1->next = Merge_Two_Lists_Recursive(l1->next, l2); return l1;}
-	if(l1->val >= l2->val) {l2->next = Merge_Two_Lists_Recursive(l1, l2->next); return l2;}
+	if(list1 == nullptr) return list2;
+	if(list2 == nullptr) return list1;
+	if(list1->data < list2->data) {list1->next = MergeTwoListsRecursive(list1->next, list2); return list1;}
+	if(list1->data >= list2->data) {list2->next = MergeTwoListsRecursive(list1, list2->next); return list2;}
 	return nullptr;
 }
 
-ListNode* l1 = nullptr;
-ListNode* l2 = nullptr;
+Node* list1 = nullptr;
+Node* list2 = nullptr;
 
 int main()
 {
 	for(int i = 10; i > 0; i--)
 	{
-		ListNode* node = new ListNode(i, l1);
-		l1 = node;
+		Node* node = new Node(i, list1);
+		list1 = node;
 	}
 
 	for(int i = 10; i > 0; i--)
 	{
-		ListNode* node = new ListNode(i, l2);
-		l2 = node;
+		Node* node = new Node(i, list2);
+		list2 = node;
 	}
 
-	ListNode* list = Merge_Two_Lists_Iterative(l1, l2);
+	Node* list = MergeTwoListsIterative(list1, list2);
 
 	while(list != nullptr)
 	{
-		std::cout << list->val << '\n';
+		std::cout << list->data << '\n';
 		list = list->next;
 	}
 }

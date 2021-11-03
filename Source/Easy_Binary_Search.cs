@@ -2,7 +2,7 @@ using System;
 
 public class Solution
 {
-    public int Binary_Search(int[] nums, int target)
+    public int BinarySearch(int[] nums, int target)
     {
         int left = 0;
         int median = 0;
@@ -34,7 +34,7 @@ public class LeetCode
 
         for(int i = 1; i <= 256; i *= 2)
         {
-            Console.WriteLine(i + ": " + solution.Binary_Search(array, i));
+            Console.WriteLine(i + ": " + solution.BinarySearch(array, i));
         }
     }
 }

@@ -1,18 +1,18 @@
-struct TreeNode
+struct Node
 {
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode() : val(0), left(nullptr), right(nullptr) {}
-	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-	TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	int data;
+	Node* left;
+	Node* right;
+	Node() : data(0), left(nullptr), right(nullptr) {}
+	Node(int x) : data(x), left(nullptr), right(nullptr) {}
+	Node(int x, Node* left, Node* right) : data(x), left(left), right(right) {}
 };
 
-TreeNode* Invert_Binary_Tree(TreeNode* root)
+Node* InvertBinaryTree(Node* root)
 {
 	if(root == nullptr) return nullptr;
-	TreeNode* left = Invert_Binary_Tree(root->left);
-	TreeNode* right = Invert_Binary_Tree(root->right);
+	Node* left = InvertBinaryTree(root->left);
+	Node* right = InvertBinaryTree(root->right);
 	root->left = right;
 	root->right = left;
 	return root;

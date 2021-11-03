@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool Is_Interger_Palindrome(int x)
+bool IsIntergerPalindrome(int x)
 {
 	unsigned int n;
 	if(x < 0) return false;
@@ -21,5 +21,5 @@ bool Is_Interger_Palindrome(int x)
 
 int main()
 {
-	printf("%s", Is_Interger_Palindrome(12122121) ? "true" : "false");
+	printf("%s", IsIntergerPalindrome(12122121) ? "true" : "false");
 }

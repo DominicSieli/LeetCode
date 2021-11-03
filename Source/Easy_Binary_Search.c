@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int Binary_Search(int* nums, int numsSize, int target)
+int BinarySearch(int* nums, int size, int target)
 {
     int left = 0;
     int median = 0;
-    int right = numsSize - 1;
+    int right = size - 1;
 
     if(target < nums[left] || target > nums[right]) return -1;
 
@@ -29,6 +29,6 @@ int main()
 {
 	for(int i = 1; i <= 256; i *= 2)
 	{
-		printf("%d: %d\n", i, Binary_Search(array, size, i));
+		printf("%d: %d\n", i, BinarySearch(array, size, i));
 	}
 }

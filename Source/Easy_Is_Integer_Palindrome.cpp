@@ -2,7 +2,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 
-bool Is_Interger_Palindrome(int x)
+bool IsIntergerPalindrome(int x)
 {
 	unsigned int n;
 	if(x < 0) return false;
@@ -21,5 +21,5 @@ bool Is_Interger_Palindrome(int x)
 
 int main()
 {
-	std::cout << std::boolalpha << Is_Interger_Palindrome(12122121);
+	std::cout << std::boolalpha << IsIntergerPalindrome(12122121);
 }

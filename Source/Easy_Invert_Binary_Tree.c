@@ -1,15 +1,15 @@
-struct TreeNode
+struct Node
 {
-	int val;
-	struct TreeNode *left;
-	struct TreeNode *right;
+	int data;
+	struct Node* left;
+	struct Node* right;
 };
 
-TreeNode* Invert_Binary_Tree(struct TreeNode* root)
+Node* InvertBinaryTree(struct Node* root)
 {
 	if(root == NULL) return NULL;
-    struct TreeNode* left = Invert_Binary_Tree(root->left);
-    struct TreeNode* right = Invert_Binary_Tree(root->right);
+    struct Node* left = InvertBinaryTree(root->left);
+    struct Node* right = InvertBinaryTree(root->right);
     root->left = right;
     root->right = left;
     return root;

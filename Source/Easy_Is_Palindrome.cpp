@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-bool Is_Palindrome(std::string s)
+bool IsPalindrome(std::string s)
 {
 	unsigned int l = 0;
 	unsigned int r = s.length() - 1;
@@ -27,8 +27,8 @@ std::string s4 = "a #a c -bbc, a:  a ";
 
 int main()
 {
-	std::cout << std::boolalpha << Is_Palindrome(s1) << '\n';
-	std::cout << std::boolalpha << Is_Palindrome(s2) << '\n';
-	std::cout << std::boolalpha << Is_Palindrome(s3) << '\n';
-	std::cout << std::boolalpha << Is_Palindrome(s4) << '\n';
+	std::cout << std::boolalpha << IsPalindrome(s1) << '\n';
+	std::cout << std::boolalpha << IsPalindrome(s2) << '\n';
+	std::cout << std::boolalpha << IsPalindrome(s3) << '\n';
+	std::cout << std::boolalpha << IsPalindrome(s4) << '\n';
 }

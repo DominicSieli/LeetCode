@@ -2,7 +2,7 @@ using System;
 
 public class Solution
 {
-	public bool Is_Palindrome(string s)
+	public bool IsPalindrome(string s)
 	{
 		int l = 0;
 		int r = s.Length - 1;
@@ -26,6 +26,6 @@ public class LeetCode
 	{
 		string s = "a #a c -bbc, a:  a ";
 		Solution solution = new Solution();
-		Console.WriteLine(solution.Is_Palindrome(s));
+		Console.WriteLine(solution.IsPalindrome(s));
 	}
 }

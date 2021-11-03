@@ -1,68 +1,68 @@
 #include <stdio.h>
 
-struct ListNode
+struct Node
 {
-	int val;
-	struct ListNode *next;
+	int data;
+	struct Node* next;
 };
 
-struct ListNode* Merge_Two_Lists_Iterative(struct ListNode* l1, struct ListNode* l2)
+struct Node* MergeTwoListsIterative(struct Node* list1, struct Node* list2)
 {
-	struct ListNode* node = NULL;
-	struct ListNode* head = NULL;
-	struct ListNode* tail = NULL;
+	struct Node* node = NULL;
+	struct Node* head = NULL;
+	struct Node* tail = NULL;
 
-	if(l1 != NULL && l2 == NULL) return l1;
-	if(l1 == NULL && l2 != NULL) return l2;
+	if(list1 != NULL && list2 == NULL) return list1;
+	if(list1 == NULL && list2 != NULL) return list2;
 
-	while(l1 != NULL && l2 != NULL)
+	while(list1 != NULL && list2 != NULL)
 	{
-		node = (l1->val < l2->val) ? l1 : l2;
+		node = (list1->data < list2->data) ? list1 : list2;
 		if(tail == NULL) head = node; else tail->next = node; tail = node;
-		if(l1->val < l2->val) l1 = l1->next; else l2 = l2->next;
+		if(list1->data < list2->data) list1 = list1->next; else list2 = list2->next;
 	}
 
-	if(l1 != NULL) {tail->next = l1; tail = l1;}
-	if(l2 != NULL) {tail->next = l2; tail = l2;}
+	if(list1 != NULL) {tail->next = list1; tail = list1;}
+	if(list2 != NULL) {tail->next = list2; tail = list2;}
 
 	return head;
 }
 
-struct ListNode* Merge_Two_Lists_Recursive(struct ListNode* l1, struct ListNode* l2)
+struct Node* MergeTwoListsRecursive(struct Node* list1, struct Node* list2)
 {
-	if(l1 == NULL) return l2;
-	if(l2 == NULL) return l1;
-	if(l1->val < l2->val) {l1->next = Merge_Two_Lists_Recursive(l1->next, l2); return l1;}
-	if(l1->val >= l2->val) {l2->next = Merge_Two_Lists_Recursive(l1, l2->next); return l2;}
+	if(list1 == NULL) return list2;
+	if(list2 == NULL) return list1;
+	if(list1->data < list2->data) {list1->next = MergeTwoListsRecursive(list1->next, list2); return list1;}
+	if(list1->data >= list2->data) {list2->next = MergeTwoListsRecursive(list1, list2->next); return list2;}
 	return NULL;
 }
 
-struct ListNode* l1 = NULL;
-struct ListNode* l2 = NULL;
+struct Node* list1 = NULL;
+struct Node* list2 = NULL;
 
 int main()
 {
 	for(int i = 10; i > 0; i--)
 	{
-		struct ListNode* node = malloc(sizeof(struct ListNode));
-		node->val = i;
-		node->next = l1;
-		l1 = node;
+		struct Node* node = malloc(sizeof(struct Node));
+		node->data = i;
+		node->next = list1;
+		list1 = node;
 	}
 
 	for(int i = 10; i > 0; i--)
 	{
-		struct ListNode* node = malloc(sizeof(struct ListNode));
-		node->val = i;
-		node->next = l2;
-		l2 = node;
+		struct Node* node = malloc(sizeof(struct Node));
+		node->data = i;
+		node->next = list2;
+		list2 = node;
 	}
 
-	struct ListNode* list = Merge_Two_Lists_Iterative(l1, l2);
+	struct Node* list = MergeTwoListsIterative(list1, list2);
 
 	while(list != NULL)
 	{
-		printf("%d\n", list->val);
+		printf("%d\n", list->data);
 		list = list->next;
 	}
 }

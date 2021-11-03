@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-bool Is_Palindrome(char* s)
+bool IsPalindrome(char* s)
 {
 	unsigned int l = 0;
 	unsigned int r = strlen(s) - 1;
@@ -27,8 +27,8 @@ char* s4 = "a #a c -bbc, a:  a ";
 
 int main()
 {
-	printf("%s\n", Is_Palindrome(s1) ? "true" : "false");
-	printf("%s\n", Is_Palindrome(s2) ? "true" : "false");
-	printf("%s\n", Is_Palindrome(s3) ? "true" : "false");
-	printf("%s\n", Is_Palindrome(s4) ? "true" : "false");
+	printf("%s\n", IsPalindrome(s1) ? "true" : "false");
+	printf("%s\n", IsPalindrome(s2) ? "true" : "false");
+	printf("%s\n", IsPalindrome(s3) ? "true" : "false");
+	printf("%s\n", IsPalindrome(s4) ? "true" : "false");
 }

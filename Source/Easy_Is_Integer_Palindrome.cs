@@ -2,7 +2,7 @@ using System;
 
 public class Solution
 {
-	public bool Is_Interger_Palindrome(int x)
+	public bool IsIntergerPalindrome(int x)
 	{
 		int n = 0;
 		if(x < 0) return false;
@@ -25,6 +25,6 @@ public class LeetCode
 	public static void Main()
 	{
 		Solution solution = new Solution();
-		Console.WriteLine(solution.Is_Interger_Palindrome(121));
+		Console.WriteLine(solution.IsIntergerPalindrome(121));
 	}
 }

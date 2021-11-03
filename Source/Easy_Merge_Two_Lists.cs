@@ -1,47 +1,47 @@
 using System;
 
-public class ListNode
+public class Node
 {
-	public int val;
-	public ListNode next;
+	public int data;
+	public Node next;
 
-	public ListNode(int val = 0, ListNode next = null)
+	public Node(int data = 0, Node next = null)
 	{
-		this.val = val;
+		this.data = data;
 		this.next = next;
 	}
 }
 
 public class Solution
 {
-	public ListNode Merge_Two_Lists_Iterative(ListNode l1, ListNode l2)
+	public Node MergeTwoListsIterative(Node list1, Node list2)
 	{
-		ListNode node = null;
-		ListNode head = null;
-		ListNode tail = null;
+		Node node = null;
+		Node head = null;
+		Node tail = null;
 
-		if(l1 != null && l2 == null) return l1;
-		if(l1 == null && l2 != null) return l2;
+		if(list1 != null && list2 == null) return list1;
+		if(list1 == null && list2 != null) return list2;
 
-		while(l1 != null && l2 != null)
+		while(list1 != null && list2 != null)
 		{
-			node = (l1.val < l2.val) ? l1 : l2;
+			node = (list1.data < list2.data) ? list1 : list2;
 			if(tail == null) head = node; else tail.next = node; tail = node;
-			if(l1.val < l2.val) l1 = l1.next; else l2 = l2.next;
+			if(list1.data < list2.data) list1 = list1.next; else list2 = list2.next;
 		}
 
-		if(l1 != null) {tail.next = l1; tail = l1;}
-		if(l2 != null) {tail.next = l2; tail = l2;}
+		if(list1 != null) {tail.next = list1; tail = list1;}
+		if(list2 != null) {tail.next = list2; tail = list2;}
 
 		return head;
 	}
 
-	public ListNode Merge_Two_Lists_Recursive(ListNode l1, ListNode l2)
+	public Node MergeTwoListsRecursive(Node list1, Node list2)
 	{
-		if(l1 == null) return l2;
-		if(l2 == null) return l1;
-		if(l1.val < l2.val) {l1.next = Merge_Two_Lists_Recursive(l1.next, l2); return l1;}
-		if(l1.val >= l2.val) {l2.next = Merge_Two_Lists_Recursive(l1, l2.next); return l2;}
+		if(list1 == null) return list2;
+		if(list2 == null) return list1;
+		if(list1.data < list2.data) {list1.next = MergeTwoListsRecursive(list1.next, list2); return list1;}
+		if(list1.data >= list2.data) {list2.next = MergeTwoListsRecursive(list1, list2.next); return list2;}
 		return null;
 	}
 }
@@ -50,27 +50,27 @@ public class LeetCode
 {
 	public static void Main()
 	{
-		ListNode l1 = null;
-		ListNode l2 = null;
+		Node list1 = null;
+		Node list2 = null;
 		Solution solution = new Solution();
 
 		for(int i = 10; i > 0; i--)
 		{
-			ListNode node = new ListNode(i, l1);
-			l1 = node;
+			Node node = new Node(i, list1);
+			list1 = node;
 		}
 
 		for(int i = 10; i > 0; i--)
 		{
-			ListNode node = new ListNode(i, l2);
-			l2 = node;
+			Node node = new Node(i, list2);
+			list2 = node;
 		}
 
-		ListNode list = solution.Merge_Two_Lists_Iterative(l1, l2);
+		Node list = solution.MergeTwoListsIterative(list1, list2);
 
 		while(list != null)
 		{
-			Console.WriteLine(list.val);
+			Console.WriteLine(list.data);
 			list = list.next;
 		}
 	}
