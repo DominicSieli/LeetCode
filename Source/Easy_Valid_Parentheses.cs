@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Solution
 {
-	public bool Valid_Parentheses(String s)
+	public bool ValidParentheses(String s)
 	{
 		if(s.Length % 2 != 0) return false;
 
@@ -41,6 +41,6 @@ public class LeetCode
 	{
 		String s = "([}}])";
 		Solution solution = new Solution();
-		Console.WriteLine(solution.Valid_Parentheses(s));
+		Console.WriteLine(solution.ValidParentheses(s));
 	}
 }

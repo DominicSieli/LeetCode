@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-int Roman_To_Integer(std::string s)
+int RomanToInteger(std::string s)
 {
 	int integer = 0;
 	std::map<char, int> numerals;
@@ -32,14 +32,19 @@ int Roman_To_Integer(std::string s)
 	return integer;
 }
 
-//std::string s = "IV";
-//std::string s = "IX";
-//std::string s = "III";
-//std::string s = "LVIII";
-//std::string s = "MMCXVI";
-std::string s = "MCMXCIV";
+std::string s1 = "IV";
+std::string s2 = "IX";
+std::string s3 = "III";
+std::string s4 = "LVIII";
+std::string s5 = "MMCXVI";
+std::string s6 = "MCMXCIV";
 
 int main()
 {
-	std::cout << Roman_To_Integer(s);
+	std::cout << RomanToInteger(s1) << '\n';
+	std::cout << RomanToInteger(s2) << '\n';
+	std::cout << RomanToInteger(s3) << '\n';
+	std::cout << RomanToInteger(s4) << '\n';
+	std::cout << RomanToInteger(s5) << '\n';
+	std::cout << RomanToInteger(s6) << '\n';
 }

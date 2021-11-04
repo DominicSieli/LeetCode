@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-bool Valid_Parentheses(std::string s)
+bool ValidParentheses(std::string s)
 {
 	if(s.length() % 2 != 0) return false;
 
@@ -38,5 +38,5 @@ std::string s = {"([}}])"};
 
 int main()
 {
-	std::cout << std::boolalpha << Valid_Parentheses(s);
+	std::cout << std::boolalpha << ValidParentheses(s);
 }

@@ -1,22 +1,22 @@
-public class ListNode
+public class Node
 {
-    public int val;
-    public ListNode next;
-    
-    public ListNode(int val=0, ListNode next=null)
+    public int data;
+    public Node next;
+
+    public Node(int data = 0, Node next = null)
     {
-        this.val = val;
+        this.data = data;
         this.next = next;
     }
 }
 
 public class Solution
 {
-    public ListNode Reverse_Linked_List(ListNode head)
+    public Node ReverseLinkedList(Node head)
     {
-        ListNode next = null;
-        ListNode current = head;
-        ListNode previous = null;
+        Node next = null;
+        Node current = head;
+        Node previous = null;
 
         while(current != null)
         {

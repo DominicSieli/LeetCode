@@ -7,39 +7,39 @@ double Distance(int* point)
     return sqrt(pow(fabs((double)point[0]), 2) + pow(fabs((double)point[1]), 2));
 }
 
-int** K_Closest_Points(int** points, int size, int k)
+int** ClosestPoints(int** points, int size, int k)
 {
     if(size == 0) return points;
-    int** closest_points = (int**)malloc(k * sizeof(int*));
-	for(int i = 0; i < k; i++) closest_points[i] = (int*)malloc(2 * sizeof(int));
+    int** closest = (int**)malloc(k * sizeof(int*));
+	for(int i = 0; i < k; i++) closest[i] = (int*)malloc(2 * sizeof(int));
 
-    int min_index = 0;
+    int index = 0;
 
     for(int i = 0; i < size; i++)
     {
-        min_index = i;
+        index = i;
 
         for(int j = i + 1; j < size; j++)
         {
-            if(Distance(points[j]) < Distance(points[min_index]))
+            if(Distance(points[j]) < Distance(points[index]))
             {
-                min_index = j;
+                index = j;
             }
         }
 
         int* p1 = points[i];
-		int* p2 = points[min_index];
+		int* p2 = points[index];
 		points[i] = p2;
-		points[min_index] = p1;
+		points[index] = p1;
     }
 
     for(int i = 0; i < k; i++)
 	{
-		closest_points[i][0] = points[i][0];
-		closest_points[i][1] = points[i][1];
+		closest[i][0] = points[i][0];
+		closest[i][1] = points[i][1];
 	}
 
-    return closest_points;
+    return closest;
 }
 
 int main()
@@ -55,10 +55,10 @@ int main()
 	}
 
     int k = 4;
-    int** k_points = K_Closest_Points(points, size, k);
+    int** closest = ClosestPoints(points, size, k);
 
     for(int i = 0; i < k; i++)
     {
-        printf("[%d] [%d,%d] : %lf\n", i, k_points[i][0], k_points[i][1], Distance(k_points[i]));
+        printf("[%d] [%d,%d] : %lf\n", i, closest[i][0], closest[i][1], Distance(closest[i]));
     }
 }

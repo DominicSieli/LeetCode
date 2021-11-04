@@ -1,18 +1,17 @@
-struct ListNode
+struct Node
 {
-	int val;
-	ListNode *next;
-	ListNode() : val(0), next(nullptr) {}
-	ListNode(int x) : val(x), next(nullptr) {}
-	ListNode(int x, ListNode *next) : val(x), next(next) {}
+	int data;
+	Node* next;
+	Node() : data(0), next(nullptr) {}
+	Node(int x) : data(x), next(nullptr) {}
+	Node(int x, Node* next) : data(x), next(next) {}
 };
 
-
-ListNode* Reverse_Linked_List(ListNode* head)
+Node* ReverseLinkedList(Node* head)
 {
-	ListNode* current = head;
-	ListNode* next = nullptr;
-	ListNode* previous = nullptr;
+	Node* current = head;
+	Node* next = nullptr;
+	Node* previous = nullptr;
 
 	while(current != nullptr)
 	{

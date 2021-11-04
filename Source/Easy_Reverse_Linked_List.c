@@ -1,15 +1,14 @@
-struct ListNode
+struct Node
 {
-	int val;
-	struct ListNode* next;
+	int data;
+	struct Node* next;
 };
 
-
-struct ListNode* Reverse_Linked_List(struct ListNode* head)
+struct Node* ReverseLinkedList(struct Node* head)
 {
-	struct ListNode* next = NULL;
-	struct ListNode* current = head;
-	struct ListNode* previous = NULL;
+	struct Node* next = NULL;
+	struct Node* current = head;
+	struct Node* previous = NULL;
 
 	while(current != NULL)
 	{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Solution
 {
-	public int Roman_To_Integer(string s)
+	public int RomanToInteger(string s)
 	{
 		int integer = 0;
 		Dictionary<char, int> numerals = new Dictionary<char, int>();
@@ -45,6 +45,12 @@ public class LeetCode
 		string s5 = "MMCXVI";
 		string s6 = "MCMXCIV";
 		Solution solution = new Solution();
-		Console.WriteLine(solution.Roman_To_Integer(s6));
+
+		Console.WriteLine(solution.RomanToInteger(s1));
+		Console.WriteLine(solution.RomanToInteger(s2));
+		Console.WriteLine(solution.RomanToInteger(s3));
+		Console.WriteLine(solution.RomanToInteger(s4));
+		Console.WriteLine(solution.RomanToInteger(s5));
+		Console.WriteLine(solution.RomanToInteger(s6));
 	}
 }

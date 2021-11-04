@@ -1,31 +1,31 @@
 #include <iostream>
 
-struct ListNode
+struct Node
 {
-	int val;
-	ListNode* next;
-	ListNode() : val(0), next(nullptr) {}
-	ListNode(int x) : val(x), next(nullptr) {}
-	ListNode(int x, ListNode *next) : val(x), next(next) {}
+	int data;
+	Node* next;
+	Node() : data(0), next(nullptr) {}
+	Node(int x) : data(x), next(nullptr) {}
+	Node(int x, Node* next) : data(x), next(next) {}
 };
 
-ListNode* Add_Two_Numbers(ListNode* l1, ListNode* l2)
+Node* AddTwoNumbers(Node* list1, Node* list2)
 {
 	int carry = 0;
-    ListNode* node1 = l1;
-    ListNode* node2 = l2;
-    ListNode* sumList = new ListNode();
-    ListNode* current = sumList;
+    Node* node1 = list1;
+    Node* node2 = list2;
+    Node* list = new Node();
+    Node* pointer = list;
 
     while(node1 != nullptr || node2 != nullptr)
 	{
-        int x = (node1 != nullptr) ? node1->val : 0;
-        int y = (node2 != nullptr) ? node2->val : 0;
+        int x = (node1 != nullptr) ? node1->data : 0;
+        int y = (node2 != nullptr) ? node2->data : 0;
         int sum = carry + x + y;
 
         carry = sum / 10;
-        current->next = new ListNode(sum % 10);
-        current = current->next;
+        pointer->next = new Node(sum % 10);
+        pointer = pointer->next;
 
         if(node1 != nullptr) node1 = node1->next;
         if(node2 != nullptr) node2 = node2->next;
@@ -33,77 +33,77 @@ ListNode* Add_Two_Numbers(ListNode* l1, ListNode* l2)
 
     if(carry > 0)
 	{
-        current->next = new ListNode(carry);
+        pointer->next = new Node(carry);
     }
 
-    return sumList->next;
+    return list->next;
 }
 
-ListNode* ptr;
-ListNode* sum;
-ListNode* l1 = new ListNode();
-ListNode* l2 = new ListNode();
+Node* sum;
+Node* pointer;
+Node* list1 = new Node();
+Node* list2 = new Node();
 
 int main()
 {
-	ptr = l1;
 	int i = 0;
+	pointer = list1;
 	while(i < 8)
 	{
 		i++;
-		ptr->next = new ListNode();
-		ptr = ptr->next;
+		pointer->next = new Node();
+		pointer = pointer->next;
 	}
 
 	i = 0;
-	ptr = l2;
+	pointer = list2;
 	while(i < 8)
 	{
 		i++;
-		ptr->next = new ListNode();
-		ptr = ptr->next;
+		pointer->next = new Node();
+		pointer = pointer->next;
 	}
 
 	i = 1;
-	ptr = l1;
-	while(ptr != nullptr)
+	pointer = list1;
+	while(pointer != nullptr)
 	{
-		ptr->val = i++;
-		ptr = ptr->next;
+		pointer->data = i++;
+		pointer = pointer->next;
 	}
 
 	i = 1;
-	ptr = l2;
-	while(ptr != nullptr)
+	pointer = list2;
+	while(pointer != nullptr)
 	{
-		ptr->val = i++;
-		ptr = ptr->next;
+		pointer->data = i++;
+		pointer = pointer->next;
 	}
 
-	sum = Add_Two_Numbers(l1, l2);
+	sum = AddTwoNumbers(list1, list2);
 
-	ptr = l1;
-	while(ptr != nullptr)
+	pointer = list1;
+	while(pointer != nullptr)
 	{
-		std::cout << ptr->val;
-		ptr = ptr->next;
+		std::cout << pointer->data;
+		pointer = pointer->next;
 	}
 
 	std::cout << '\n';
 
-	ptr = l2;
-	while(ptr != nullptr)
+	pointer = list2;
+	while(pointer != nullptr)
 	{
-		std::cout << ptr->val;
-		ptr = ptr->next;
+		std::cout << pointer->data;
+		pointer = pointer->next;
 	}
 
 	std::cout << '\n';
 
-	ptr = sum;
-	while(ptr != nullptr)
+	pointer = sum;
+	while(pointer != nullptr)
 	{
-		std::cout << ptr->val;
-		ptr = ptr->next;
+		std::cout << pointer->data;
+		pointer = pointer->next;
 	}
 }

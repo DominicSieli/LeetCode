@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-int* Two_Sum(int* nums, int numsSize, int target, int* returnSize)
+int* TwoSum(int* nums, int size, int target, int* returnSize)
 {
     int* results = (int*)malloc(sizeof(*returnSize) * 2);
 
-	for(int i = 0; i < numsSize; i++)
+	for(int i = 0; i < size; i++)
 	{
-		for(int j = i + 1; j < numsSize; j++)
+		for(int j = i + 1; j < size; j++)
 		{
 			if(nums[i] + nums[j] == target)
 			{
@@ -24,7 +24,7 @@ int* Two_Sum(int* nums, int numsSize, int target, int* returnSize)
 
 int main()
 {
-	int target = 9;
+	int target = 26;
 	int* returnSize;
 	const unsigned int size = 10;
 	int* nums = (int*)malloc(sizeof(int) * size);
@@ -35,9 +35,8 @@ int main()
 	nums[3] = 15;
 
 	*returnSize = 2;
-	int* results = Two_Sum(nums, size, target, returnSize);
+	int* results = TwoSum(nums, size, target, returnSize);
 
 
-	printf("[%d]", results[0]);
-	printf("[%d]", results[1]);
+	printf("[%d][%d]\n", results[0], results[1]);
 }

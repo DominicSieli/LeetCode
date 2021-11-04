@@ -1,30 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct ListNode
+struct Node
 {
-	int val;
-	struct ListNode* next;
+	int data;
+	struct Node* next;
 };
 
-struct ListNode* Add_Two_Numbers(struct ListNode* l1, struct ListNode* l2)
+struct Node* AddTwoNumbers(struct Node* list1, struct Node* list2)
 {
 	int carry = 0;
-    struct ListNode* node1 = l1;
-    struct ListNode* node2 = l2;
-    struct ListNode* sumList = malloc(sizeof(struct ListNode));
-    struct ListNode* current = sumList;
+    struct Node* node1 = list1;
+    struct Node* node2 = list2;
+    struct Node* list = malloc(sizeof(struct Node));
+    struct Node* pointer = list;
 
     while(node1 != NULL || node2 != NULL)
 	{
-        int x = (node1 != NULL) ? node1->val : 0;
-        int y = (node2 != NULL) ? node2->val : 0;
+        int x = (node1 != NULL) ? node1->data : 0;
+        int y = (node2 != NULL) ? node2->data : 0;
         int sum = carry + x + y;
 
         carry = sum / 10;
-        current->next = malloc(sizeof(struct ListNode));
-        current->next->val = sum % 10;
-        current = current->next;
+        pointer->next = malloc(sizeof(struct Node));
+        pointer->next->data = sum % 10;
+        pointer = pointer->next;
 
         if(node1 != NULL) node1 = node1->next;
         if(node2 != NULL) node2 = node2->next;
@@ -32,78 +32,78 @@ struct ListNode* Add_Two_Numbers(struct ListNode* l1, struct ListNode* l2)
 
     if(carry > 0)
 	{
-        current->next = malloc(sizeof(struct ListNode));
-        current->next->val = carry;
+        pointer->next = malloc(sizeof(struct Node));
+        pointer->next->data = carry;
     }
 
-    return sumList->next;
+    return list->next;
 }
 
 int main()
 {
-	struct ListNode* ptr;
-	struct ListNode* sum;
-	struct ListNode* l1 = malloc(sizeof(struct ListNode));
-	struct ListNode* l2 = malloc(sizeof(struct ListNode));
+	struct Node* sum;
+	struct Node* pointer;
+	struct Node* list1 = malloc(sizeof(struct Node));
+	struct Node* list2 = malloc(sizeof(struct Node));
 
-	ptr = l1;
 	int i = 0;
+	pointer = list1;
 	while(i < 8)
 	{
 		i++;
-		ptr->next = malloc(sizeof(struct ListNode));
-		ptr = ptr->next;
+		pointer->next = malloc(sizeof(struct Node));
+		pointer = pointer->next;
 	}
 
 	i = 0;
-	ptr = l2;
+	pointer = list2;
 	while(i < 8)
 	{
 		i++;
-		ptr->next = malloc(sizeof(struct ListNode));
-		ptr = ptr->next;
+		pointer->next = malloc(sizeof(struct Node));
+		pointer = pointer->next;
 	}
 
 	i = 1;
-	ptr = l1;
-	while(ptr != NULL)
+	pointer = list1;
+	while(pointer != NULL)
 	{
-		ptr->val = i++;
-		ptr = ptr->next;
+		pointer->data = i++;
+		pointer = pointer->next;
 	}
 
 	i = 1;
-	ptr = l2;
-	while(ptr != NULL)
+	pointer = list2;
+	while(pointer != NULL)
 	{
-		ptr->val = i++;
-		ptr = ptr->next;
+		pointer->data = i++;
+		pointer = pointer->next;
 	}
 
-	sum = Add_Two_Numbers(l1, l2);
+	sum = AddTwoNumbers(list1, list2);
 
-	ptr = l1;
-	while(ptr != NULL)
+	pointer = list1;
+	while(pointer != NULL)
 	{
-		printf("%d", ptr->val);
-		ptr = ptr->next;
+		printf("%d", pointer->data);
+		pointer = pointer->next;
 	}
 
 	printf("\n");
 
-	ptr = l2;
-	while(ptr != NULL)
+	pointer = list2;
+	while(pointer != NULL)
 	{
-		printf("%d", ptr->val);
-		ptr = ptr->next;
+		printf("%d", pointer->data);
+		pointer = pointer->next;
 	}
 
 	printf("\n");
 
-	ptr = sum;
-	while(ptr != NULL)
+	pointer = sum;
+	while(pointer != NULL)
 	{
-		printf("%d", ptr->val);
-		ptr = ptr->next;
+		printf("%d", pointer->data);
+		pointer = pointer->next;
 	}
 }

@@ -2,22 +2,22 @@ using System;
 
 public class Solution
 {
-	public int Reverse_Integer(int x)
+	public int ReverseInteger(int x)
 	{
-		int rev = 0;
-		int pop = 0;
+		int xlast = 0;
+		int reverse = 0;
 
 		while(x != 0)
 		{
-			pop = x % 10;
+			xlast = x % 10;
 			x /= 10;
 
-			if(rev > Int32.MaxValue / 10 || (rev == Int32.MaxValue / 10 && pop > 7)) return 0;
-			if(rev < Int32.MinValue / 10 || (rev == Int32.MinValue / 10 && pop < -8)) return 0;
-			rev = rev * 10 + pop;
+			if(reverse > Int32.MaxValue / 10 || (reverse == Int32.MaxValue / 10 && xlast > 7)) return 0;
+			if(reverse < Int32.MinValue / 10 || (reverse == Int32.MinValue / 10 && xlast < -8)) return 0;
+			reverse = reverse * 10 + xlast;
 		}
 
-		return rev;
+		return reverse;
 	}
 }
 
@@ -27,7 +27,7 @@ public class LeetCode
 	{
 		Solution solution = new Solution();
 
-		Console.WriteLine(solution.Reverse_Integer(123));
-		Console.WriteLine(solution.Reverse_Integer(-123));
+		Console.WriteLine(solution.ReverseInteger(123));
+		Console.WriteLine(solution.ReverseInteger(-123));
 	}
 }

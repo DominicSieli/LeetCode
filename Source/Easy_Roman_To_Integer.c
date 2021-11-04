@@ -16,7 +16,7 @@ int Numerals(char c)
 	return 0;
 }
 
-int Roman_To_Integer(char* s)
+int RomanToInteger(char* s)
 {
 	int integer = 0;
 
@@ -46,5 +46,10 @@ char* s6 = "MCMXCIV";
 
 int main()
 {
-	printf("%d", Roman_To_Integer(s6));
+	printf("%d\n", RomanToInteger(s1));
+	printf("%d\n", RomanToInteger(s2));
+	printf("%d\n", RomanToInteger(s3));
+	printf("%d\n", RomanToInteger(s4));
+	printf("%d\n", RomanToInteger(s5));
+	printf("%d\n", RomanToInteger(s6));
 }
