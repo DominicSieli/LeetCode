@@ -10,33 +10,33 @@ struct Node
 struct Node* AddTwoNumbers(struct Node* list1, struct Node* list2)
 {
 	int carry = 0;
-    struct Node* node1 = list1;
-    struct Node* node2 = list2;
-    struct Node* list = malloc(sizeof(struct Node));
-    struct Node* pointer = list;
+	struct Node* node1 = list1;
+	struct Node* node2 = list2;
+	struct Node* list = malloc(sizeof(struct Node));
+	struct Node* pointer = list;
 
-    while(node1 != NULL || node2 != NULL)
+	while(node1 != NULL || node2 != NULL)
 	{
-        int x = (node1 != NULL) ? node1->data : 0;
-        int y = (node2 != NULL) ? node2->data : 0;
-        int sum = carry + x + y;
+		int x = (node1 != NULL) ? node1->data : 0;
+		int y = (node2 != NULL) ? node2->data : 0;
+		int sum = carry + x + y;
 
-        carry = sum / 10;
-        pointer->next = malloc(sizeof(struct Node));
-        pointer->next->data = sum % 10;
-        pointer = pointer->next;
+		carry = sum / 10;
+		pointer->next = malloc(sizeof(struct Node));
+		pointer->next->data = sum % 10;
+		pointer = pointer->next;
 
-        if(node1 != NULL) node1 = node1->next;
-        if(node2 != NULL) node2 = node2->next;
-    }
+		if(node1 != NULL) node1 = node1->next;
+		if(node2 != NULL) node2 = node2->next;
+	}
 
-    if(carry > 0)
+	if(carry > 0)
 	{
-        pointer->next = malloc(sizeof(struct Node));
-        pointer->next->data = carry;
-    }
+		pointer->next = malloc(sizeof(struct Node));
+		pointer->next->data = carry;
+	}
 
-    return list->next;
+	return list->next;
 }
 
 int main()

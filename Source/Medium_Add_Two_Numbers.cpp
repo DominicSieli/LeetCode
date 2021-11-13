@@ -12,31 +12,31 @@ struct Node
 Node* AddTwoNumbers(Node* list1, Node* list2)
 {
 	int carry = 0;
-    Node* node1 = list1;
-    Node* node2 = list2;
-    Node* list = new Node();
-    Node* pointer = list;
+	Node* node1 = list1;
+	Node* node2 = list2;
+	Node* list = new Node();
+	Node* pointer = list;
 
-    while(node1 != nullptr || node2 != nullptr)
+	while(node1 != nullptr || node2 != nullptr)
 	{
-        int x = (node1 != nullptr) ? node1->data : 0;
-        int y = (node2 != nullptr) ? node2->data : 0;
-        int sum = carry + x + y;
+		int x = (node1 != nullptr) ? node1->data : 0;
+		int y = (node2 != nullptr) ? node2->data : 0;
+		int sum = carry + x + y;
 
-        carry = sum / 10;
-        pointer->next = new Node(sum % 10);
-        pointer = pointer->next;
+		carry = sum / 10;
+		pointer->next = new Node(sum % 10);
+		pointer = pointer->next;
 
-        if(node1 != nullptr) node1 = node1->next;
-        if(node2 != nullptr) node2 = node2->next;
-    }
+		if(node1 != nullptr) node1 = node1->next;
+		if(node2 != nullptr) node2 = node2->next;
+	}
 
-    if(carry > 0)
+	if(carry > 0)
 	{
-        pointer->next = new Node(carry);
-    }
+		pointer->next = new Node(carry);
+	}
 
-    return list->next;
+	return list->next;
 }
 
 Node* sum;
