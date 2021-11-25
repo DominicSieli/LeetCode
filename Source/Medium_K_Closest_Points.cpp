@@ -1,38 +1,23 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 double Distance(vector<int> point)
 {
-	return sqrt(pow(abs(point[0]), 2) + pow(abs(point[1]), 2));
+	return point[0] * point[0] + point[1] * point[1];
 }
 
 vector<vector<int>> ClosestPoints(vector<vector<int>>& points, int k)
 {
-	if(points.size() == 0) return points;
-
-	int index = 0;
-
-	for(unsigned int i = 0; i < points.size(); i++)
+	sort(points.begin(), points.end(), [&](vector<int>& a, vector<int>& b)
 	{
-		index = i;
+		return Distance(a) < Distance(b);
+	});
 
-		for(unsigned int j = i + 1; j < points.size(); j++)
-		{
-			if(Distance(points[j]) < Distance(points[index]))
-			{
-				index = j;
-			}
-		}
-
-		swap(points[i], points[index]);
-	}
-
-	vector<vector<int>> closest = points;
-	closest.resize(k);
-	return closest;
+	return vector<vector<int>>(points.begin(), points.begin() + k);
 }
 
 int main()
